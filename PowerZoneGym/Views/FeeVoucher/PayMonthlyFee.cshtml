@@ -1,0 +1,292 @@
+﻿@model PowerZoneGym.Models.FeeVoucherDetailsViewModel
+
+@{
+    ViewData["Title"] = "Fee Collection";
+}
+
+<div class="fee-page">
+
+    <div class="fee-card">
+
+        <!-- HEADER -->
+        <div class="fee-header">
+
+            <div class="fee-header-title">
+
+                <div class="fee-header-icon">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                </div>
+
+                <div>
+                    <h2>Fee Collection</h2>
+                    <p>Collect and manage monthly trainee fees</p>
+                </div>
+
+            </div>
+
+            <div class="fee-status">
+                <i class="fa-solid fa-circle-check"></i>
+                Payment
+            </div>
+
+        </div>
+
+
+        <form asp-action="PayMonthlyFee"
+              asp-controller="FeeVoucher"
+              method="post"
+              autocomplete="off">
+
+            @Html.AntiForgeryToken()
+
+
+            <!-- CONTENT -->
+            <div class="fee-content">
+
+                <div class="row g-4">
+
+
+                    <!-- LEFT SIDE -->
+                    <div class="col-lg-6">
+
+                        <div class="fee-section">
+
+                            <div class="fee-section-title">
+
+                                <div class="section-icon">
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
+
+                                <div>
+                                    <h4>Basic Information</h4>
+                                    <p>Trainee details</p>
+                                </div>
+
+                            </div>
+
+
+                            <!-- First Name -->
+                            <div class="fee-field">
+
+                                <label asp-for="GymTraineeVM.FirstName"
+                                       class="fee-label">
+                                </label>
+
+                                <div class="fee-input">
+
+                                    <i class="fa-solid fa-user"></i>
+
+                                    <input asp-for="GymTraineeVM.FirstName"
+                                           class="form-control"
+                                           readonly />
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Last Name -->
+                            <div class="fee-field">
+
+                                <label asp-for="GymTraineeVM.LastName"
+                                       class="fee-label">
+                                </label>
+
+                                <div class="fee-input">
+
+                                    <i class="fa-solid fa-user"></i>
+
+                                    <input asp-for="GymTraineeVM.LastName"
+                                           class="form-control"
+                                           readonly />
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Address -->
+                            <div class="fee-field">
+
+                                <label asp-for="GymTraineeVM.Address"
+                                       class="fee-label">
+                                </label>
+
+                                <div class="fee-input">
+
+                                    <i class="fa-solid fa-location-dot"></i>
+
+                                    <input asp-for="GymTraineeVM.Address"
+                                           class="form-control"
+                                           readonly />
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Monthly Fee -->
+                            <div class="fee-field">
+
+                                <label asp-for="GymTraineeVM.MonthlyFee"
+                                       class="fee-label">
+                                </label>
+
+                                <div class="fee-input">
+
+                                    <i class="fa-solid fa-money-bill-wave"></i>
+
+                                    <input asp-for="GymTraineeVM.MonthlyFee"
+                                           class="form-control fee-amount"
+                                           readonly />
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Fee Summary -->
+                            <div class="fee-summary">
+
+                                <div class="summary-icon">
+                                    <i class="fa-solid fa-wallet"></i>
+                                </div>
+
+                                <div>
+
+                                    <span>Monthly Fee</span>
+
+                                    <strong>
+                                        Rs @Model.GymTraineeVM.MonthlyFee
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RIGHT SIDE -->
+                    <div class="col-lg-6">
+
+                        <div class="fee-section">
+
+                            <div class="fee-section-title">
+
+                                <div class="section-icon payment-icon">
+                                    <i class="fa-solid fa-receipt"></i>
+                                </div>
+
+                                <div>
+                                    <h4>Fee Information</h4>
+                                    <p>Payment details</p>
+                                </div>
+
+                            </div>
+
+
+                            <!-- Fee Date -->
+                            <div class="fee-field">
+
+                                <label asp-for="MonthlyFeeVoucherVM.FeeDate"
+                                       class="fee-label">
+                                </label>
+
+                                <div class="fee-input">
+
+                                    <i class="fa-solid fa-calendar-days"></i>
+
+                                    <input asp-for="MonthlyFeeVoucherVM.FeeDate"
+                                           type="date"
+                                           class="form-control" />
+
+                                </div>
+
+                                <span asp-validation-for="MonthlyFeeVoucherVM.FeeDate"
+                                      class="text-danger">
+                                </span>
+
+                            </div>
+
+
+                            <!-- Remarks -->
+                            <div class="fee-field">
+
+                                <label asp-for="MonthlyFeeVoucherVM.Remarks"
+                                       class="fee-label">
+                                </label>
+
+                                <div class="fee-textarea">
+
+                                    <i class="fa-solid fa-note-sticky"></i>
+
+                                    <textarea asp-for="MonthlyFeeVoucherVM.Remarks"
+                                              class="form-control"
+                                              rows="7"
+                                              placeholder="Enter payment remarks..."></textarea>
+
+                                </div>
+
+                                <span asp-validation-for="MonthlyFeeVoucherVM.Remarks"
+                                      class="text-danger">
+                                </span>
+
+                            </div>
+
+
+                            <!-- Hidden Trainee ID -->
+                            <input asp-for="MonthlyFeeVoucherVM.TraineeId"
+                                   type="hidden" />
+
+
+                            <!-- Payment Notice -->
+                            <div class="payment-notice">
+
+                                <i class="fa-solid fa-circle-info"></i>
+
+                                <span>
+                                    Please verify the trainee information
+                                    and payment date before submitting.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FOOTER BUTTONS -->
+            <div class="fee-actions">
+
+                <a asp-action="Index"
+                   class="fee-btn fee-back-btn">
+
+                    <i class="fa-solid fa-arrow-left"></i>
+                    View All
+
+                </a>
+
+
+                <button type="submit"
+                        class="fee-btn fee-submit-btn">
+
+                    <i class="fa-solid fa-check"></i>
+                    Submit Payment
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

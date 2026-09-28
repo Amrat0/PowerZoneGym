@@ -1,0 +1,2181 @@
+/* =========================================================
+   HOME PAGE
+   ========================================================= */
+/* ================================
+   POWERZONEGYM - TOP MARQUEE
+   ================================ */
+
+
+.power-nav-link {
+    transition: all 0.25s ease;
+}
+
+    .power-nav-link:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        transform: translateY(-4px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+    }
+
+
+
+.gym-marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background: #111827;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    height: 42px;
+    display: flex;
+    align-items: center;
+}
+
+    /* Subtle glow on both sides */
+    .gym-marquee::before,
+    .gym-marquee::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 80px;
+        height: 100%;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .gym-marquee::before {
+        left: 0;
+        background: linear-gradient(to right, #111827, transparent);
+    }
+
+    .gym-marquee::after {
+        right: 0;
+        background: linear-gradient(to left, #111827, transparent);
+    }
+
+.gym-marquee-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    white-space: nowrap;
+    width: max-content;
+    animation: gymMarquee 24s linear infinite;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: #d1d5db;
+}
+
+/* PowerZoneGym name */
+.gym-marquee-title {
+    color: #ffffff;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+/* Lightning icon */
+.gym-marquee-icon {
+    font-size: 17px;
+}
+
+/* Separators */
+.gym-marquee-divider {
+    color: #6b7280;
+    font-size: 16px;
+}
+
+/* Animation */
+@keyframes gymMarquee {
+    0% {
+        transform: translateX(100vw);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Pause when mouse is over it */
+.gym-marquee:hover .gym-marquee-content {
+    animation-play-state: paused;
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+
+    .gym-marquee {
+        height: 38px;
+    }
+
+    .gym-marquee-content {
+        font-size: 12px;
+        gap: 12px;
+    }
+}
+
+.logo-icon img {
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 4px 4px #1f2937;
+    border-radius: 100px;
+}
+.logo-text{
+    font-weight:800;
+}
+.home-page {
+    min-height: calc(100vh - 145px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    background: radial-gradient( circle at center, rgba(239, 68, 68, 0.08), transparent 45% );
+}
+
+
+/* =========================================================
+   HOME CONTENT
+   ========================================================= */
+
+.home-content {
+    width: 100%;
+    max-width: 750px;
+    text-align: center;
+    padding: 55px 40px;
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.10);
+    border: 1px solid #eeeeee;
+}
+
+
+/* =========================================================
+   ICON
+   ========================================================= */
+
+.home-icon img {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ef4444;
+    color: white;
+    border-radius: 100px;
+    font-size: 38px;
+    box-shadow: 0 4px 4px #1f2937;
+}
+
+.home-icon-owner img {
+    width: 150px;
+    height: 200px;
+    border-radius: 20px;
+    box-shadow: 0 4px 2px #f1738a;
+}
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.home-content h1 {
+    margin: 0;
+    color: #111827;
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+    .home-content h1 span {
+        color: #ef4444;
+    }
+
+
+/* =========================================================
+   SUBTITLE
+   ========================================================= */
+
+.home-subtitle {
+    margin-top: 15px;
+    margin-bottom: 8px;
+    color: #374151;
+    font-size: 21px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.home-description {
+    max-width: 560px;
+    margin: 0 auto;
+    color: #6b7280;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.home-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+
+.home-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 24px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+
+/* Primary */
+
+.primary-btn {
+    background: #ef4444;
+    color: white;
+}
+
+    .primary-btn:hover {
+        background: #dc2626;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 18px rgba(239, 68, 68, 0.25);
+    }
+
+
+/* Secondary */
+
+.secondary-btn {
+    background: #111827;
+    color: white;
+}
+
+    .secondary-btn:hover {
+        background: #1f2937;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+    }
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .home-page {
+        min-height: calc(100vh - 130px);
+        padding: 30px 15px;
+    }
+
+    .home-content {
+        padding: 40px 20px;
+        border-radius: 18px;
+    }
+
+        .home-content h1 {
+            font-size: 30px;
+        }
+
+    .home-subtitle {
+        font-size: 18px;
+    }
+
+    .home-description {
+        font-size: 14px;
+    }
+
+    .home-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .home-btn {
+        width: 100%;
+    }
+}
+
+/* =========================================================
+   BEAUTIFUL FOOTER
+   ========================================================= */
+
+.power-footer {
+    background: #111827;
+    color: #d1d5db;
+    padding: 35px 20px 25px;
+    margin-top: 50px;
+    border-top: 3px solid #ef4444;
+    text-align: center;
+    box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================================
+   FOOTER CONTENT
+   ========================================================= */
+
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   FOOTER BRAND
+   ========================================================= */
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+    .footer-brand > span:last-child > span {
+        color: #ef4444;
+    }
+
+
+/* =========================================================
+   FOOTER ICON
+   ========================================================= */
+
+.footer-icon {
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ef4444;
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    box-shadow: 0 5px 15px rgba(239, 68, 68, 0.30);
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.footer-description {
+    margin: 12px 0 0;
+    color: #9ca3af;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+}
+
+
+/* =========================================================
+   LINE
+   ========================================================= */
+
+.footer-line {
+    width: 70px;
+    height: 2px;
+    margin: 22px auto;
+    background: #ef4444;
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   COPYRIGHT
+   ========================================================= */
+
+.footer-copyright {
+    margin: 0;
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+    .footer-copyright strong {
+        color: white;
+    }
+
+    .footer-copyright span {
+        color: #ef4444;
+        margin: 0 7px;
+    }
+
+
+/* =========================================================
+   HOVER EFFECT
+   ========================================================= */
+
+.footer-brand:hover .footer-icon {
+    transform: translateY(-3px) rotate(-3deg);
+    transition: 0.25s ease;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .power-footer {
+        padding: 30px 15px 22px;
+    }
+
+    .footer-brand {
+        font-size: 21px;
+    }
+
+    .footer-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .footer-description {
+        font-size: 13px;
+    }
+}
+/* =========================================================
+   TRAINEE FORM
+   ========================================================= */
+
+.trainee-page {
+    padding: 45px 15px;
+    background: #f5f7fa;
+    min-height: calc(100vh - 145px);
+}
+
+
+.trainee-card {
+    max-width: 950px;
+    margin: auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.trainee-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 28px 35px;
+    background: #111827;
+    color: white;
+    border-bottom: 3px solid #ef4444;
+}
+
+
+.trainee-header-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ef4444;
+    border-radius: 14px;
+    font-size: 23px;
+    box-shadow: 0 7px 18px rgba(239, 68, 68, 0.3);
+}
+
+
+.trainee-header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 750;
+}
+
+
+.trainee-header p {
+    margin: 4px 0 0;
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.trainee-card form {
+    padding: 35px;
+}
+
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+
+.form-section {
+    margin-bottom: 30px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 20px;
+    color: #111827;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+
+    .section-title i {
+        color: #ef4444;
+    }
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.form-label {
+    display: block;
+    margin-bottom: 7px;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
+.input-icon {
+    position: relative;
+}
+
+
+    .input-icon > i {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #9ca3af;
+        font-size: 14px;
+        z-index: 2;
+    }
+
+
+    .input-icon .form-control {
+        padding-left: 42px;
+    }
+
+
+.form-control {
+    min-height: 46px;
+    border: 1px solid #d1d5db;
+    border-radius: 9px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+
+    .form-control:focus {
+        border-color: #ef4444;
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.10);
+    }
+
+
+select.form-control {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   GENDER
+   ========================================================= */
+
+.gender-options {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+
+.gender-option {
+    cursor: pointer;
+}
+
+
+    .gender-option input {
+        display: none;
+    }
+
+
+    .gender-option span {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 18px;
+        border: 1px solid #d1d5db;
+        border-radius: 9px;
+        color: #4b5563;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.2s ease;
+    }
+
+
+        .gender-option span i {
+            color: #9ca3af;
+        }
+
+
+    .gender-option input:checked + span {
+        background: #ef4444;
+        border-color: #ef4444;
+        color: white;
+        box-shadow: 0 5px 14px rgba(239, 68, 68, 0.20);
+    }
+
+
+        .gender-option input:checked + span i {
+            color: white;
+        }
+
+
+/* =========================================================
+   PHOTO AREA
+   ========================================================= */
+
+.photo-area {
+    display: flex;
+    gap: 35px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+
+.current-photo p {
+    margin-bottom: 8px;
+    color: #6b7280;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+.current-photo img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 3px solid #e5e7eb;
+}
+
+
+.new-photo {
+    flex: 1;
+    min-width: 250px;
+}
+
+
+.photo-preview {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #f3f4f6;
+    border: 2px dashed #d1d5db;
+    border-radius: 14px;
+    color: #9ca3af;
+    font-size: 32px;
+}
+
+
+    .photo-preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+
+.photo-help {
+    display: block;
+    margin-top: 6px;
+    color: #9ca3af;
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    padding-top: 5px;
+}
+
+
+.btn-save,
+.btn-view {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 46px;
+    padding: 0 22px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+
+.btn-save {
+    border: none;
+    background: #ef4444;
+    color: white;
+}
+
+
+    .btn-save:hover {
+        background: #dc2626;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 7px 18px rgba(239, 68, 68, 0.25);
+    }
+
+
+.btn-view {
+    background: #111827;
+    color: white;
+}
+
+
+    .btn-view:hover {
+        background: #1f2937;
+        color: white;
+        transform: translateY(-2px);
+    }
+
+
+/* =========================================================
+   VALIDATION
+   ========================================================= */
+
+.text-danger {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+
+.validation-summary-errors {
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .trainee-page {
+        padding: 20px 10px;
+    }
+
+    .trainee-header {
+        padding: 22px 20px;
+    }
+
+        .trainee-header h2 {
+            font-size: 19px;
+        }
+
+    .trainee-card form {
+        padding: 22px 18px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn-save,
+    .btn-view {
+        width: 100%;
+    }
+
+    .photo-area {
+        flex-direction: column;
+    }
+}
+/* =========================================
+   GYM TRAINEE LIST
+   ========================================= */
+
+.trainee-list-page {
+    padding: 40px 15px;
+    background: #f5f7fa;
+    min-height: calc(100vh - 145px);
+}
+
+.trainee-list-card {
+    max-width: 1500px;
+    margin: auto;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Header */
+
+.list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 25px 30px;
+    background: #111827;
+    border-bottom: 3px solid #ef4444;
+}
+
+.list-title-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.list-header-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ef4444;
+    color: white;
+    border-radius: 13px;
+    font-size: 21px;
+    box-shadow: 0 7px 18px rgba(239, 68, 68, 0.3);
+}
+
+.list-header h2 {
+    margin: 0;
+    color: white;
+    font-size: 23px;
+    font-weight: 750;
+}
+
+.list-header p {
+    margin: 4px 0 0;
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+
+/* New Button */
+
+.new-trainee-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 18px;
+    background: #ef4444;
+    color: white;
+    border-radius: 9px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+    .new-trainee-btn:hover {
+        background: #dc2626;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 7px 18px rgba(239, 68, 68, 0.25);
+    }
+
+
+/* Search Area */
+
+.trainee-search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 22px 30px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.search-box {
+    position: relative;
+    width: 350px;
+}
+
+    .search-box i {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #9ca3af;
+        font-size: 14px;
+    }
+
+    .search-box input {
+        width: 100%;
+        height: 43px;
+        padding: 0 15px 0 40px;
+        border: 1px solid #d1d5db;
+        border-radius: 9px;
+        outline: none;
+        font-size: 14px;
+        transition: all 0.2s ease;
+    }
+
+        .search-box input:focus {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+        }
+
+.trainee-count {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #6b7280;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+    .trainee-count i {
+        color: #ef4444;
+    }
+
+
+/* Table */
+
+.trainee-table {
+    width: 100%;
+    margin: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+    .trainee-table thead th {
+        padding: 15px 12px;
+        background: #f9fafb;
+        color: #4b5563;
+        border-bottom: 1px solid #e5e7eb;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+
+    .trainee-table tbody td {
+        padding: 13px 12px;
+        color: #4b5563;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 13px;
+        vertical-align: middle;
+        white-space: nowrap;
+    }
+
+    .trainee-table tbody tr {
+        transition: background 0.2s ease;
+    }
+
+        .trainee-table tbody tr:hover {
+            background: #fff8f8;
+        }
+
+        .trainee-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+
+/* Profile Image */
+
+.trainee-avatar {
+    width: 46px;
+    height: 46px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #e5e7eb;
+}
+
+.no-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f4f6;
+    color: #9ca3af;
+    font-size: 17px;
+}
+
+
+/* Name */
+
+.name-cell strong {
+    color: #111827;
+    font-weight: 700;
+}
+
+
+/* Contact */
+
+.contact-cell {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+    .contact-cell i {
+        color: #ef4444;
+        font-size: 11px;
+    }
+
+
+/* Address */
+
+.address-cell {
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+    .address-cell i {
+        margin-right: 5px;
+        color: #ef4444;
+    }
+
+
+/* Badges */
+
+.gender-badge,
+.blood-badge,
+.training-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 9px;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.gender-badge {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.blood-badge {
+    background: #fff1f2;
+    color: #dc2626;
+}
+
+.training-badge {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.blood-badge i {
+    color: #ef4444;
+}
+
+.training-badge i {
+    color: #ef4444;
+}
+
+
+/* Fee */
+
+.fee-cell {
+    color: #111827;
+    font-weight: 700;
+}
+
+
+/* Actions */
+
+.actions-column {
+    text-align: center;
+}
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.action-btn {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+    .action-btn:hover {
+        color: white;
+        transform: translateY(-2px);
+    }
+
+.fee-btn {
+    background: #0ea5e9;
+}
+
+    .fee-btn:hover {
+        background: #0284c7;
+        box-shadow: 0 5px 12px rgba(14, 165, 233, 0.25);
+    }
+
+.edit-btn {
+    background: #111827;
+}
+
+    .edit-btn:hover {
+        background: #1f2937;
+        box-shadow: 0 5px 12px rgba(17, 24, 39, 0.2);
+    }
+
+.delete-btn {
+    background: #ef4444;
+}
+
+    .delete-btn:hover {
+        background: #dc2626;
+        box-shadow: 0 5px 12px rgba(239, 68, 68, 0.25);
+    }
+
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .trainee-list-page {
+        padding: 20px 10px;
+    }
+
+    .list-header {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 20px;
+    }
+
+    .new-trainee-btn {
+        width: 100%;
+    }
+
+    .trainee-search {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 18px 20px;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .trainee-count {
+        justify-content: flex-end;
+    }
+
+    .trainee-table {
+        min-width: 1200px;
+    }
+}
+
+/* =========================================
+   FEE COLLECTION PAGE
+   ========================================= */
+
+.fee-page {
+    min-height: calc(100vh - 145px);
+    padding: 40px 15px;
+    background: #f5f7fa;
+}
+
+.fee-card {
+    max-width: 1100px;
+    margin: auto;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.fee-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 26px 32px;
+    background: #111827;
+    border-bottom: 3px solid #ef4444;
+}
+
+.fee-header-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.fee-header-icon {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ef4444;
+    color: white;
+    border-radius: 13px;
+    font-size: 22px;
+    box-shadow: 0 7px 18px rgba(239, 68, 68, 0.3);
+}
+
+.fee-header h2 {
+    margin: 0;
+    color: white;
+    font-size: 24px;
+    font-weight: 750;
+}
+
+.fee-header p {
+    margin: 4px 0 0;
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+.fee-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #d1d5db;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+    .fee-status i {
+        color: #22c55e;
+    }
+
+
+/* =========================================
+   CONTENT
+   ========================================= */
+
+.fee-content {
+    padding: 32px;
+}
+
+.fee-section {
+    height: 100%;
+    padding: 25px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 15px;
+}
+
+.fee-section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.section-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff1f2;
+    color: #ef4444;
+    border-radius: 9px;
+    font-size: 16px;
+}
+
+.payment-icon {
+    background: #eff6ff;
+    color: #0ea5e9;
+}
+
+.fee-section-title h4 {
+    margin: 0;
+    color: #111827;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.fee-section-title p {
+    margin: 3px 0 0;
+    color: #9ca3af;
+    font-size: 12px;
+}
+
+
+/* =========================================
+   INPUTS
+   ========================================= */
+
+.fee-field {
+    margin-bottom: 19px;
+}
+
+.fee-label {
+    display: block;
+    margin-bottom: 7px;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 650;
+}
+
+.fee-input {
+    position: relative;
+}
+
+    .fee-input > i {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        z-index: 2;
+        transform: translateY(-50%);
+        color: #9ca3af;
+        font-size: 13px;
+    }
+
+    .fee-input .form-control {
+        min-height: 45px;
+        padding-left: 40px;
+        border: 1px solid #d1d5db;
+        border-radius: 9px;
+        color: #374151;
+        font-size: 14px;
+    }
+
+        .fee-input .form-control:focus {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+        }
+
+        .fee-input .form-control[readonly] {
+            background: #f9fafb;
+            cursor: not-allowed;
+        }
+
+.fee-amount {
+    color: #111827 !important;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   TEXTAREA
+   ========================================= */
+
+.fee-textarea {
+    position: relative;
+}
+
+    .fee-textarea > i {
+        position: absolute;
+        left: 14px;
+        top: 15px;
+        z-index: 2;
+        color: #9ca3af;
+        font-size: 13px;
+    }
+
+    .fee-textarea .form-control {
+        min-height: 160px;
+        padding: 12px 15px 12px 40px;
+        border: 1px solid #d1d5db;
+        border-radius: 9px;
+        resize: vertical;
+        font-size: 14px;
+    }
+
+        .fee-textarea .form-control:focus {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+        }
+
+
+/* =========================================
+   FEE SUMMARY
+   ========================================= */
+
+.fee-summary {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-top: 23px;
+    padding: 15px;
+    background: #fff7f7;
+    border: 1px solid #fee2e2;
+    border-radius: 11px;
+}
+
+.summary-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ef4444;
+    color: white;
+    border-radius: 9px;
+}
+
+.fee-summary span {
+    display: block;
+    color: #6b7280;
+    font-size: 12px;
+}
+
+.fee-summary strong {
+    display: block;
+    margin-top: 2px;
+    color: #111827;
+    font-size: 18px;
+}
+
+
+/* =========================================
+   PAYMENT NOTICE
+   ========================================= */
+
+.payment-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 22px;
+    padding: 13px;
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+    border-radius: 9px;
+    color: #475569;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+    .payment-notice i {
+        margin-top: 2px;
+        color: #0ea5e9;
+    }
+
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+.fee-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 20px 32px;
+    background: #f9fafb;
+    border-top: 1px solid #e5e7eb;
+}
+
+.fee-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 45px;
+    padding: 0 22px;
+    border-radius: 9px;
+    border: none;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.fee-back-btn {
+    background: #374151;
+    color: white;
+}
+
+    .fee-back-btn:hover {
+        background: #1f2937;
+        color: white;
+        transform: translateY(-2px);
+    }
+
+.fee-submit-btn {
+    background: #ef4444;
+    color: white;
+}
+
+    .fee-submit-btn:hover {
+        background: #dc2626;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 7px 18px rgba(239, 68, 68, 0.25);
+    }
+
+
+/* =========================================
+   VALIDATION
+   ========================================= */
+
+.text-danger {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .fee-page {
+        padding: 20px 10px;
+    }
+
+    .fee-header {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 22px 20px;
+    }
+
+        .fee-header h2 {
+            font-size: 20px;
+        }
+
+    .fee-status {
+        align-self: flex-start;
+    }
+
+    .fee-content {
+        padding: 20px 15px;
+    }
+
+    .fee-section {
+        padding: 20px;
+    }
+
+    .fee-actions {
+        flex-direction: column-reverse;
+        padding: 18px 15px;
+    }
+
+    .fee-btn {
+        width: 100%;
+    }
+}
+
+/* =========================================
+   FEE COLLECTION LIST
+   ========================================= */
+
+.fee-list-page {
+    min-height: calc(100vh - 145px);
+    padding: 40px 15px;
+    background: #f5f7fa;
+}
+
+.fee-list-card {
+    max-width: 1500px;
+    margin: auto;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.fee-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 25px 30px;
+    background: #111827;
+    border-bottom: 3px solid #ef4444;
+}
+
+.fee-list-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.fee-list-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ef4444;
+    color: white;
+    border-radius: 13px;
+    font-size: 21px;
+    box-shadow: 0 7px 18px rgba(239, 68, 68, 0.3);
+}
+
+.fee-list-title h2 {
+    margin: 0;
+    color: white;
+    font-size: 23px;
+    font-weight: 750;
+}
+
+.fee-list-title p {
+    margin: 4px 0 0;
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+
+/* =========================================
+   HEADER BUTTONS
+   ========================================= */
+
+.fee-header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.fee-header-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 42px;
+    padding: 0 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.members-btn {
+    background: #374151;
+    color: white;
+}
+
+    .members-btn:hover {
+        background: #4b5563;
+        color: white;
+        transform: translateY(-2px);
+    }
+
+.add-member-btn {
+    background: #ef4444;
+    color: white;
+}
+
+    .add-member-btn:hover {
+        background: #dc2626;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(239, 68, 68, 0.25);
+    }
+
+
+/* =========================================
+   FILTER AREA
+   ========================================= */
+
+.fee-filter-area {
+    padding: 22px 30px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.fee-filter-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.filter-status {
+    flex: 1;
+    min-width: 320px;
+}
+
+.filter-date {
+    min-width: 245px;
+}
+
+.filter-submit {
+    min-width: 125px;
+}
+
+.filter-label {
+    display: block;
+    margin-bottom: 9px;
+    color: #374151;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+    .filter-label i {
+        margin-right: 5px;
+        color: #ef4444;
+    }
+
+
+/* =========================================
+   STATUS OPTIONS
+   ========================================= */
+
+.status-options {
+    display: flex;
+    gap: 8px;
+}
+
+.status-option {
+    cursor: pointer;
+}
+
+    .status-option input {
+        display: none;
+    }
+
+    .status-option span {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        min-height: 40px;
+        padding: 0 14px;
+        background: #f9fafb;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        color: #4b5563;
+        font-size: 13px;
+        font-weight: 600;
+        transition: all 0.2s ease;
+    }
+
+        .status-option span i {
+            color: #9ca3af;
+        }
+
+    .status-option input:checked + span {
+        background: #111827;
+        border-color: #111827;
+        color: white;
+    }
+
+        .status-option input:checked + span i {
+            color: white;
+        }
+
+.paid-option input:checked + span {
+    background: #16a34a;
+    border-color: #16a34a;
+}
+
+.unpaid-option input:checked + span {
+    background: #ef4444;
+    border-color: #ef4444;
+}
+
+
+/* =========================================
+   DATE
+   ========================================= */
+
+.date-input {
+    width: 100%;
+    min-height: 40px;
+    padding: 0 11px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    outline: none;
+    color: #374151;
+    font-size: 13px;
+}
+
+    .date-input:focus {
+        border-color: #ef4444;
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    }
+
+
+/* =========================================
+   GET RECORD BUTTON
+   ========================================= */
+
+.get-record-btn {
+    width: 100%;
+    min-height: 40px;
+    border: none;
+    border-radius: 8px;
+    background: #ef4444;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+    .get-record-btn:hover {
+        background: #dc2626;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(239, 68, 68, 0.2);
+    }
+
+
+/* =========================================
+   TABLE
+   ========================================= */
+
+.fee-table {
+    width: 100%;
+    margin: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+    .fee-table thead th {
+        padding: 15px 12px;
+        background: #f9fafb;
+        border-bottom: 1px solid #e5e7eb;
+        color: #4b5563;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+
+        .fee-table thead th i {
+            margin-right: 4px;
+            color: #ef4444;
+        }
+
+    .fee-table tbody td {
+        padding: 14px 12px;
+        border-bottom: 1px solid #f0f0f0;
+        color: #4b5563;
+        font-size: 13px;
+        vertical-align: middle;
+        white-space: nowrap;
+    }
+
+    .fee-table tbody tr {
+        transition: background 0.2s ease;
+    }
+
+        .fee-table tbody tr:hover {
+            background: #fff8f8;
+        }
+
+        .fee-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+
+/* =========================================
+   TABLE CELLS
+   ========================================= */
+
+.trainee-id {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30px;
+    padding: 5px 7px;
+    background: #f3f4f6;
+    border-radius: 6px;
+    color: #374151;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.fee-name strong {
+    color: #111827;
+    font-weight: 700;
+}
+
+.fee-contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+    .fee-contact i,
+    .fee-address i {
+        color: #ef4444;
+        font-size: 11px;
+    }
+
+.fee-address {
+    max-width: 190px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+    .fee-address i {
+        margin-right: 5px;
+    }
+
+.remarks-cell {
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #6b7280 !important;
+}
+
+
+/* =========================================
+   PAYMENT STATUS
+   ========================================= */
+
+.payment-status {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+    .payment-status > span {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px 9px;
+        border-radius: 7px;
+        font-size: 11px;
+        font-weight: 700;
+    }
+
+    .payment-status.paid > span {
+        background: #dcfce7;
+        color: #15803d;
+    }
+
+    .payment-status.unpaid > span {
+        background: #fee2e2;
+        color: #dc2626;
+    }
+
+    .payment-status.paid > span i {
+        color: #16a34a;
+    }
+
+    .payment-status.unpaid > span i {
+        color: #ef4444;
+    }
+
+
+/* =========================================
+   STATUS ACTIONS
+   ========================================= */
+
+.status-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 9px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.print-action {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+    .print-action:hover {
+        background: #111827;
+        color: white;
+    }
+
+.pay-action {
+    background: #fff1f2;
+    color: #dc2626;
+}
+
+    .pay-action:hover {
+        background: #ef4444;
+        color: white;
+    }
+
+
+/* =========================================
+   DELETE
+   ========================================= */
+
+.fee-action-column {
+    text-align: center;
+}
+
+.delete-fee-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 34px;
+    padding: 0 11px;
+    border: none;
+    border-radius: 7px;
+    background: #ef4444;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+    .delete-fee-btn:hover {
+        background: #dc2626;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 12px rgba(239, 68, 68, 0.2);
+    }
+
+
+/* =========================================
+   EMPTY STATE
+   ========================================= */
+
+.empty-fee-state {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.empty-fee-icon {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f4f6;
+    color: #9ca3af;
+    border-radius: 15px;
+    font-size: 25px;
+}
+
+.empty-fee-state h4 {
+    margin: 0;
+    color: #374151;
+    font-size: 17px;
+}
+
+.empty-fee-state p {
+    margin-top: 6px;
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .fee-list-page {
+        padding: 20px 10px;
+    }
+
+    .fee-list-header {
+        align-items: stretch;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .fee-header-buttons {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .fee-header-btn {
+        width: 100%;
+    }
+
+    .fee-filter-area {
+        padding: 20px;
+    }
+
+    .fee-filter-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+    }
+
+    .filter-status,
+    .filter-date,
+    .filter-submit {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .status-options {
+        flex-wrap: wrap;
+    }
+
+    .status-option {
+        flex: 1;
+    }
+
+        .status-option span {
+            width: 100%;
+            justify-content: center;
+        }
+
+    .fee-table {
+        min-width: 1100px;
+    }
+}

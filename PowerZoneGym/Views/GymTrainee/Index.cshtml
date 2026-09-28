@@ -1,0 +1,402 @@
+﻿@model IEnumerable<PowerZoneGym.Models.TraineeDetailViewModel>
+
+@{
+    ViewData["Title"] = "Gym Trainees";
+}
+
+<div class="trainee-list-page">
+
+    <div class="trainee-list-card">
+
+        <!-- Page Header -->
+        <div class="list-header">
+
+            <div class="list-title-area">
+
+                <div class="list-header-icon">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+
+                <div>
+                    <h2>Gym Trainee List</h2>
+                    <p>Manage registered gym trainees</p>
+                </div>
+
+            </div>
+
+            <a asp-controller="GymTrainee"  asp-action="SaveTraineeInfo"
+               
+                            
+               class="new-trainee-btn">
+
+                <i class="fa-solid fa-user-plus"></i>
+                New Trainee
+
+            </a>
+
+        </div>
+
+
+        <!-- Search -->
+        <div class="trainee-search">
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input id="myInput"
+                       type="text"
+                       placeholder="Search trainees..." />
+
+            </div>
+
+            <div class="trainee-count">
+
+                <i class="fa-solid fa-users"></i>
+
+                <span id="traineeCount">
+                    @Model.Count()
+                </span>
+                Trainees
+
+            </div>
+
+        </div>
+
+
+        <!-- Table -->
+        <div class="table-responsive">
+
+            <table class="trainee-table"
+                   id="myTable">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Photo</th>
+
+                        <th>
+                            @Html.DisplayNameFor(
+                                model => model.GymTraineeVM.FirstName)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(
+                                model => model.GymTraineeVM.LastName)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(
+                                model => model.GymTraineeVM.ContactNo)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(
+                                model => model.GymTraineeVM.Age)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(
+                                model => model.GymTraineeVM.Height)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(
+                                model => model.GymTraineeVM.Weight)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(
+                                model => model.GymTraineeVM.Gender)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(
+                                model => model.GymTraineeVM.Address)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(
+                                model => model.BloodGroupVM.BloodGroupName)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(
+                                model => model.TrainingLevelVM.TrainingLevelName)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(
+                                model => model.GymTraineeVM.MonthlyFee)
+                        </th>
+
+                        <th class="actions-column">
+                            Actions
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <!-- Image -->
+                            <td>
+
+                                @if (!string.IsNullOrEmpty(
+                                    item.GymTraineeVM.ImageName))
+                                {
+                                    <img src="@Url.Content(
+                                        "~/Images/" +
+                                        item.GymTraineeVM.ImageName)"
+                                         asp-append-version="true"
+                                         class="trainee-avatar"
+                                         alt="Trainee" />
+                                }
+                                else
+                                {
+                                    <div class="trainee-avatar no-image">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                }
+
+                            </td>
+
+
+                            <!-- First Name -->
+                            <td class="name-cell">
+
+                                <strong>
+                                    @Html.DisplayFor(
+                                        modelItem =>
+                                        item.GymTraineeVM.FirstName)
+                                </strong>
+
+                            </td>
+
+
+                            <!-- Last Name -->
+                            <td>
+                                @Html.DisplayFor(
+                                    modelItem =>
+                                    item.GymTraineeVM.LastName)
+                            </td>
+
+
+                            <!-- Contact -->
+                            <td>
+
+                                <span class="contact-cell">
+
+                                    <i class="fa-solid fa-phone"></i>
+
+                                    @Html.DisplayFor(
+                                        modelItem =>
+                                        item.GymTraineeVM.ContactNo)
+
+                                </span>
+
+                            </td>
+
+
+                            <!-- Age -->
+                            <td>
+                                @Html.DisplayFor(
+                                    modelItem =>
+                                    item.GymTraineeVM.Age)
+                            </td>
+
+
+                            <!-- Height -->
+                            <td>
+                                @Html.DisplayFor(
+                                    modelItem =>
+                                    item.GymTraineeVM.Height)
+                            </td>
+
+
+                            <!-- Weight -->
+                            <td>
+                                @Html.DisplayFor(
+                                    modelItem =>
+                                    item.GymTraineeVM.Weight)
+                            </td>
+
+
+                            <!-- Gender -->
+                            <td>
+
+                                <span class="gender-badge">
+
+                                    @Html.DisplayFor(
+                                        modelItem =>
+                                        item.GymTraineeVM.Gender)
+
+                                </span>
+
+                            </td>
+
+
+                            <!-- Address -->
+                            <td class="address-cell">
+
+                                <i class="fa-solid fa-location-dot"></i>
+
+                                @Html.DisplayFor(
+                                    modelItem =>
+                                    item.GymTraineeVM.Address)
+
+                            </td>
+
+
+                            <!-- Blood Group -->
+                            <td>
+
+                                <span class="blood-badge">
+
+                                    <i class="fa-solid fa-droplet"></i>
+
+                                    @Html.DisplayFor(
+                                        modelItem =>
+                                        item.BloodGroupVM.BloodGroupName)
+
+                                </span>
+
+                            </td>
+
+
+                            <!-- Training Level -->
+                            <td>
+
+                                <span class="training-badge">
+
+                                    <i class="fa-solid fa-dumbbell"></i>
+
+                                    @Html.DisplayFor(
+                                        modelItem =>
+                                        item.TrainingLevelVM.TrainingLevelName)
+
+                                </span>
+
+                            </td>
+
+
+                            <!-- Monthly Fee -->
+                            <td>
+
+                                <span class="fee-cell">
+
+                                    Rs
+                                    @Html.DisplayFor(
+                                        modelItem =>
+                                        item.GymTraineeVM.MonthlyFee)
+
+                                </span>
+
+                            </td>
+
+
+                            <!-- Actions -->
+                            <td>
+
+                                <form asp-action="Delete"
+                                      asp-route-id="@item.GymTraineeVM.TraineeId"
+                                      method="post">
+
+                                    <div class="action-buttons">
+
+                                        <!-- Fee -->
+                                        <a asp-controller="FeeVoucher"
+                                           asp-route-id="@item.GymTraineeVM.TraineeId"
+                                           asp-action="Index"
+                                           class="action-btn fee-btn"
+                                           title="Fee Collection">
+
+                                            <i class="fa-solid fa-money-bill-wave"></i>
+
+                                        </a>
+
+
+                                        <!-- Edit -->
+                                        <a asp-action="SaveTraineeInfo"
+                                           asp-route-id="@item.GymTraineeVM.TraineeId"
+                                           class="action-btn edit-btn"
+                                           title="Edit Trainee">
+
+                                            <i class="fa-solid fa-pen"></i>
+
+                                        </a>
+
+
+                                        <!-- Delete -->
+                                        <button type="submit"
+                                                class="action-btn delete-btn"
+                                                title="Delete Trainee"
+                                                onclick="return confirm('Are you sure you want to delete the selected record?');">
+
+                                            <i class="fa-solid fa-trash"></i>
+
+                                        </button>
+
+                                    </div>
+
+                                </form>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+@section Scripts {
+
+    <script>
+
+        $(document).ready(function () {
+
+            $("#myInput").on("keyup", function () {
+
+                var value = $(this).val().toLowerCase();
+
+                var visibleRows = 0;
+
+                $("#myTable tbody tr").filter(function () {
+
+                    var match =
+                        $(this).text()
+                        .toLowerCase()
+                        .indexOf(value) > -1;
+
+                    $(this).toggle(match);
+
+                    if (match) {
+                        visibleRows++;
+                    }
+
+                });
+
+                $("#traineeCount").text(visibleRows);
+
+            });
+
+        });
+
+    </script>
+
+}

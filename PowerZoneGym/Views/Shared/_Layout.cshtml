@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - PowerZoneGym</title>
+
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- Site CSS -->
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/PowerZoneGym.styles.css"
+          asp-append-version="true" />
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <!-- Table Search -->
+    <script>
+
+            $(document).ready(function () {
+
+                $("#myInput").on("keyup", function () {
+
+                    var value = $(this).val().toLowerCase();
+
+                    $("#myTable tbody tr").filter(function () {
+
+                        $(this).toggle(
+                            $(this).text().toLowerCase().indexOf(value) > -1
+                        );
+
+                    });
+
+                });
+
+            });
+
+    </script>
+
+</head>
+
+
+<body>
+
+
+    <!-- ========================================================= -->
+    <!-- HEADER -->
+    <!-- ========================================================= -->
+
+    <header>
+
+
+        <nav class="navbar navbar-expand-lg power-navbar " >
+
+            <div  class="container-fluid px-lg-5"   > 
+
+
+                <!-- LOGO -->
+                <a class="navbar-brand power-logo"
+                   asp-area=""
+                   asp-controller="Home"
+                   asp-action="Index">
+
+                     <div class="footer-brand" >
+            <span class="logo-icon">
+           <img src="~/Images/Powerzone logo.jpg" />
+            </span>
+
+            <span>
+                Power<span>Zone</span>Gym
+            </span>
+        </div>
+
+
+                </a>
+
+
+                <!-- MOBILE BUTTON -->
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#mainNavbar"
+                        aria-controls="mainNavbar"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+
+              <!-- NAVIGATION -->
+<div class="collapse navbar-collapse" id="mainNavbar">
+
+    <ul class="navbar-nav ms-auto align-items-lg-center power-nav">
+
+        <!-- HOME -->
+        <li class="nav-item">
+            <a class="nav-link power-nav-link"
+               asp-controller="Home"
+               asp-action="Index">
+
+                <span class="power-nav-icon">
+                    <i class="fa-solid fa-house"></i>
+                </span>
+
+                <span>Home</span>
+            </a>
+        </li>
+
+
+        <!-- ADD MEMBER -->
+        <li class="nav-item">
+            <a class="nav-link power-nav-link"
+               asp-controller="GymTrainee"
+               asp-action="SaveTraineeInfo">
+
+                <span class="power-nav-icon">
+                    <i class="fa-solid fa-user-plus"></i>
+                </span>
+
+                <span>Add Member</span>
+            </a>
+        </li>
+
+
+        <!-- VIEW MEMBERS -->
+        <li class="nav-item">
+            <a class="nav-link power-nav-link"
+               asp-controller="GymTrainee"
+               asp-action="Index">
+
+                <span class="power-nav-icon">
+                    <i class="fa-solid fa-users"></i>
+                </span>
+
+                <span>View Members</span>
+            </a>
+        </li>
+
+
+        <!-- FEES -->
+        <li class="nav-item">
+            <a class="nav-link power-nav-link"
+               asp-controller="FeeVoucher"
+               asp-action="Index">
+
+                <span class="power-nav-icon">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                </span>
+
+                <span>Fees Collection</span>
+            </a>
+        </li>
+
+    </ul>
+
+</div>
+            </div>
+
+        </nav>
+     
+          <div class="gym-marquee">
+    <div class="gym-marquee-content">
+        <span class="gym-marquee-icon">⚡</span>
+        <span class="gym-marquee-title">POWERZONEGYM</span>
+        <span class="gym-marquee-divider">•</span>
+        <span>Welcome to your ultimate fitness destination</span>
+        <span class="gym-marquee-divider">•</span>
+        <span>Manage Members</span>
+        <span class="gym-marquee-divider">•</span>
+        <span>Track Memberships</span>
+        <span class="gym-marquee-divider">•</span>
+        <span>Collect Fees</span>
+        <span class="gym-marquee-divider">•</span>
+        <span> → Umerkot</span>
+    </div>
+</div>       
+    </header>
+
+
+    <!-- ========================================================= -->
+    <!-- MAIN CONTENT -->
+    <!-- ========================================================= -->
+
+    <main role="main">
+
+        @RenderBody()
+
+    </main>
+
+
+    <!-- ========================================================= -->
+    <!-- FOOTER -->
+    <!-- ========================================================= -->
+
+ <footer class="power-footer">
+
+    <div class="footer-content">
+
+        <div class="footer-brand">
+
+         <span class="logo-icon">
+           <img src="~/Images/Powerzone logo.jpg" />
+            </span>
+
+            <span>
+                Power<span>Zone</span>Gym
+            </span>
+        </div>
+
+        <p class="footer-description">
+            Gym Trainee & Fee Management System
+        </p>
+
+        <div class="footer-line"></div>
+
+        <p class="footer-copyright">
+            &copy; 2026 <strong>PowerZoneGym</strong>
+            <span>•</span>
+            All Rights Reserved
+        </p>
+        <br />
+          <p class="footer-copyright">
+            Develop by      <span>•</span> <strong>AmratAmu</strong>
+          
+          
+        </p>
+
+    </div>
+
+</footer>
+
+
+    <!-- Bootstrap -->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Site JS -->
+    <script src="~/js/site.js"
+            asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+
+</html>

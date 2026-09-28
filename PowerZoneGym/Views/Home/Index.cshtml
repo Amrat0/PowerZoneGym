@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="home-page">
+
+    <div class="home-content">
+
+        <div class="home-icon">
+           <img src="~/Images/Powerzone logo.jpg" />
+        </div>
+
+        <h1>
+            Welcome to <span>PowerZoneGym</span>
+        </h1>
+
+            <div class="home-icon-owner">
+           <img src="~/Images/Ali Nohri o.jpg" />
+           <p class="home-subtitle">
+            ALI NOHRI
+        </p>
+
+         
+        </div>
+
+
+      
+
+      <p class="home-description">
+    Meet <strong>Ali Nohri</strong>, our dedicated gym owner, committed to 
+    providing a well-organized fitness experience. Easily manage trainees, 
+    memberships, fee collection, and gym records — all in one place.
+</p>
+
+
+        <div class="home-buttons">
+
+            <a asp-controller="GymTrainee"
+               asp-action="SaveTraineeInfo"
+               class="home-btn primary-btn">
+
+                <i class="fa-solid fa-user-plus"></i>
+                Add Trainee
+
+            </a>
+
+            <a asp-controller="FeeVoucher"
+               asp-action="Index"
+               class="home-btn secondary-btn">
+
+                <i class="fa-solid fa-money-bill-wave"></i>
+                Fees Collection
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>

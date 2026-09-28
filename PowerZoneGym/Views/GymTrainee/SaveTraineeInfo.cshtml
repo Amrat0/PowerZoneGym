@@ -1,0 +1,487 @@
+@model PowerZoneGym.Models.GymTrainee
+
+@{
+    ViewData["Title"] = "Gym Trainee";
+}
+
+<div class="trainee-page">
+
+    <div class="trainee-card">
+
+        <!-- Header -->
+        <div class="trainee-header">
+
+            <div class="trainee-header-icon">
+                <i class="fa-solid fa-user-plus"></i>
+            </div>
+
+            <div>
+                <h2>Gym Trainee Information</h2>
+                <p>Register and manage trainee details</p>
+            </div>
+
+        </div>
+
+
+        <!-- Form -->
+        <form asp-action="SaveTraineeInfo"
+              method="post"
+              enctype="multipart/form-data"
+              autocomplete="off">
+
+            <div asp-validation-summary="ModelOnly"
+                 class="alert alert-danger"
+                 role="alert">
+            </div>
+
+            <input type="hidden" asp-for="TraineeId" />
+
+
+            <!-- Personal Information -->
+            <div class="form-section">
+
+                <div class="section-title">
+                    <i class="fa-solid fa-user"></i>
+                    Personal Information
+                </div>
+
+                <div class="row g-3">
+
+                    <!-- First Name -->
+                    <div class="col-md-6">
+
+                        <label asp-for="FirstName"
+                               class="form-label">
+                        </label>
+
+                        <div class="input-icon">
+                            <i class="fa-solid fa-user"></i>
+
+                            <input asp-for="FirstName"
+                                   class="form-control"
+                                   placeholder="Enter first name" />
+                        </div>
+
+                        <span asp-validation-for="FirstName"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+
+                    <!-- Last Name -->
+                    <div class="col-md-6">
+
+                        <label asp-for="LastName"
+                               class="form-label">
+                        </label>
+
+                        <div class="input-icon">
+                            <i class="fa-solid fa-user"></i>
+
+                            <input asp-for="LastName"
+                                   class="form-control"
+                                   placeholder="Enter last name" />
+                        </div>
+
+                        <span asp-validation-for="LastName"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+
+                    <!-- Age -->
+                    <div class="col-md-4">
+
+                        <label asp-for="Age"
+                               class="form-label">
+                        </label>
+
+                        <div class="input-icon">
+                            <i class="fa-solid fa-calendar"></i>
+
+                            <input asp-for="Age"
+                                   class="form-control"
+                                   placeholder="Age" />
+                        </div>
+
+                        <span asp-validation-for="Age"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+
+                    <!-- Height -->
+                    <div class="col-md-4">
+
+                        <label class="form-label">
+                            Height
+                        </label>
+
+                        <div class="input-icon select-icon">
+                            <i class="fa-solid fa-ruler-vertical"></i>
+
+                            <select asp-for="Height"
+                                    class="form-control"
+                                    asp-items="@ViewBag.Height_TL">
+
+                                <option value="">
+                                    -- Select Height --
+                                </option>
+
+                            </select>
+                        </div>
+
+                        <span asp-validation-for="Height"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+
+                    <!-- Weight -->
+                    <div class="col-md-4">
+
+                        <label asp-for="Weight"
+                               class="form-label">
+                        </label>
+
+                        <div class="input-icon">
+                            <i class="fa-solid fa-weight-scale"></i>
+
+                            <input asp-for="Weight"
+                                   class="form-control"
+                                   placeholder="Weight" />
+                        </div>
+
+                        <span asp-validation-for="Weight"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+
+                    <!-- Gender -->
+                    <div class="col-md-12">
+
+                        <label asp-for="Gender"
+                               class="form-label">
+                            Gender
+                        </label>
+
+                        <div class="gender-options">
+
+                            <label class="gender-option">
+
+                                <input asp-for="Gender"
+                                       type="radio"
+                                       value="Male" />
+
+                                <span>
+                                    <i class="fa-solid fa-mars"></i>
+                                    Male
+                                </span>
+
+                            </label>
+
+
+                            <label class="gender-option">
+
+                                <input asp-for="Gender"
+                                       type="radio"
+                                       value="Female" />
+
+                                <span>
+                                    <i class="fa-solid fa-venus"></i>
+                                    Female
+                                </span>
+
+                            </label>
+
+
+                            <label class="gender-option">
+
+                                <input asp-for="Gender"
+                                       type="radio"
+                                       value="Undefined" />
+
+                                <span>
+                                    <i class="fa-solid fa-user"></i>
+                                    Undefined
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                        <span asp-validation-for="Gender"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+
+                    <!-- Address -->
+                    <div class="col-md-12">
+
+                        <label asp-for="Address"
+                               class="form-label">
+                        </label>
+
+                        <div class="input-icon">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <input asp-for="Address"
+                                   class="form-control"
+                                   placeholder="Enter address" />
+
+                        </div>
+
+                        <span asp-validation-for="Address"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Gym Information -->
+            <div class="form-section">
+
+                <div class="section-title">
+                    <i class="fa-solid fa-dumbbell"></i>
+                    Gym Information
+                </div>
+
+                <div class="row g-3">
+
+
+                    <!-- Blood Group -->
+                    <div class="col-md-6">
+
+                        <label class="form-label">
+                            Blood Group
+                        </label>
+
+                        <div class="input-icon select-icon">
+
+                            <i class="fa-solid fa-droplet"></i>
+
+                            <select asp-for="BloodGroupID"
+                                    class="form-control"
+                                    asp-items="@ViewBag.BGl">
+
+                                <option value="">
+                                    -- Select Blood Group --
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <span asp-validation-for="BloodGroupID"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+
+                    <!-- Training Level -->
+                    <div class="col-md-6">
+
+                        <label class="form-label">
+                            Training Level
+                        </label>
+
+                        <div class="input-icon select-icon">
+
+                            <i class="fa-solid fa-chart-line"></i>
+
+                            <select asp-for="TrainingLevelID"
+                                    class="form-control"
+                                    asp-items="@ViewBag.TLL">
+
+                                <option value="">
+                                    -- Select Training Level --
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <span asp-validation-for="TrainingLevelID"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+
+                    <!-- Monthly Fee -->
+                    <div class="col-md-6">
+
+                        <label asp-for="MonthlyFee"
+                               class="form-label">
+                        </label>
+
+                        <div class="input-icon">
+
+                            <i class="fa-solid fa-money-bill-wave"></i>
+
+                            <input asp-for="MonthlyFee"
+                                   class="form-control"
+                                   placeholder="Enter monthly fee" />
+
+                        </div>
+
+                        <span asp-validation-for="MonthlyFee"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Profile Image -->
+            <div class="form-section">
+
+                <div class="section-title">
+                    <i class="fa-solid fa-camera"></i>
+                    Profile Photo
+                </div>
+
+                <div class="photo-area">
+
+                    <!-- Existing image -->
+                    @if (!string.IsNullOrEmpty(Model.ImageName))
+                    {
+                        <div class="current-photo">
+
+                            <p>Current Photo</p>
+
+                            <img src="@Url.Content("~/Images/" + Model.ImageName)"
+                                 asp-append-version="true"
+                                 alt="Current trainee photo" />
+
+                        </div>
+                    }
+
+
+                    <!-- Preview -->
+                    <div class="new-photo">
+
+                        <div class="photo-preview">
+
+                            <i class="fa-solid fa-user"
+                               id="defaultPhotoIcon"></i>
+
+                            <img id="imgpreview"
+                                 src="#"
+                                 alt="Image Preview"
+                                 style="display:none;" />
+
+                        </div>
+
+
+                        <label asp-for="ImageFile"
+                               class="form-label">
+                            Choose Photo
+                        </label>
+
+                        <input asp-for="ImageFile"
+                               id="Profileimg"
+                               accept="image/*"
+                               class="form-control" />
+
+                        <small class="photo-help">
+                            JPG, JPEG, PNG or other image formats
+                        </small>
+
+                        <span asp-validation-for="ImageFile"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Buttons -->
+            <div class="form-actions">
+
+                <button type="submit"
+                        class="btn-save">
+
+                    <i class="fa-solid fa-floppy-disk"></i>
+
+                    Save Trainee
+
+                </button>
+
+
+                <a asp-action="Index"
+                   class="btn-view">
+
+                    <i class="fa-solid fa-users"></i>
+
+                    View All Trainees
+
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+@section Scripts {
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            // Image preview
+            $("#Profileimg").change(function () {
+
+                if (this.files && this.files[0]) {
+
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+
+                        $("#imgpreview")
+                            .attr("src", e.target.result)
+                            .show();
+
+                        $("#defaultPhotoIcon").hide();
+
+                    };
+
+                    reader.readAsDataURL(this.files[0]);
+
+                }
+
+            });
+
+        });
+
+    </script>
+}

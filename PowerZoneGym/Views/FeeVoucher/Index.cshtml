@@ -1,0 +1,420 @@
+﻿@model IEnumerable<PowerZoneGym.Models.FeeVoucherDetailsViewModel>
+
+@{
+    ViewData["Title"] = "Fee Collection";
+}
+
+<div class="fee-list-page">
+
+    <div class="fee-list-card">
+
+        <!-- HEADER -->
+        <div class="fee-list-header">
+
+            <div class="fee-list-title">
+
+                <div class="fee-list-icon">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                </div>
+
+                <div>
+                    <h2>Fee Collection List</h2>
+                    <p>Manage trainee monthly fee payments</p>
+                </div>
+
+            </div>
+
+
+            <!-- HEADER BUTTONS -->
+            <div class="fee-header-buttons">
+
+                <!-- View Members -->
+                <a asp-controller="GymTrainee"
+                   asp-action="Index"
+                   class="fee-header-btn members-btn">
+
+                    <i class="fa-solid fa-users"></i>
+                    View Members
+
+                </a>
+
+
+                <!-- Add Member -->
+                <a asp-controller="GymTrainee"
+                   asp-action="SaveTraineeInfo"
+                   class="fee-header-btn add-member-btn">
+
+                    <i class="fa-solid fa-user-plus"></i>
+                    Add Member
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- FILTER AREA -->
+        <div class="fee-filter-area">
+
+            <form asp-controller="FeeVoucher"
+                  asp-action="Index"
+                  method="get">
+
+                <div class="fee-filter-row">
+
+
+                    <!-- PAYMENT STATUS -->
+                    <div class="filter-status">
+
+                        <label class="filter-label">
+                            <i class="fa-solid fa-filter"></i>
+                            Payment Status
+                        </label>
+
+                        <div class="status-options">
+
+                            <label class="status-option">
+
+                                <input type="radio"
+                                       value="list"
+                                       name="selected_rbt"
+                                       @(ViewBag.Selectedbutton == "list"
+                                           ? "checked=\"checked\""
+                                           : "") />
+
+                                <span>
+                                    <i class="fa-solid fa-list"></i>
+                                    All
+                                </span>
+
+                            </label>
+
+
+                            <label class="status-option paid-option">
+
+                                <input type="radio"
+                                       value="Paid"
+                                       name="selected_rbt"
+                                       @(ViewBag.Selectedbutton == "Paid"
+                                           ? "checked=\"checked\""
+                                           : "") />
+
+                                <span>
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    Paid
+                                </span>
+
+                            </label>
+
+
+                            <label class="status-option unpaid-option">
+
+                                <input type="radio"
+                                       value="Un-Paid"
+                                       name="selected_rbt"
+                                       @(ViewBag.Selectedbutton == "Un-Paid"
+                                           ? "checked=\"checked\""
+                                           : "") />
+
+                                <span>
+                                    <i class="fa-solid fa-circle-xmark"></i>
+                                    Un-Paid
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DATE -->
+                    <div class="filter-date">
+
+                        <label class="filter-label">
+
+                            <i class="fa-solid fa-calendar-days"></i>
+                            Current Date
+
+                        </label>
+
+                        @if (ViewBag.selectedDate != null)
+                        {
+                            <input id="selectedDate"
+                                   type="datetime-local"
+                                   name="selectedDate"
+                                   value="@ViewBag.selectedDate"
+                                   class="date-input" />
+                        }
+                        else
+                        {
+                            <input id="selectedDate"
+                                   type="datetime-local"
+                                   name="selectedDate"
+                                   value=""
+                                   class="date-input" />
+                        }
+
+                    </div>
+
+
+                    <!-- GET RECORDS -->
+                    <div class="filter-submit">
+
+                        <button type="submit"
+                                class="get-record-btn">
+
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            Get Records
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+        <!-- TABLE -->
+        <div class="table-responsive">
+
+            <table class="fee-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            <i class="fa-solid fa-hashtag"></i>
+                            ID
+                        </th>
+
+                        <th>
+                            <i class="fa-solid fa-user"></i>
+                            First Name
+                        </th>
+
+                        <th>
+                            <i class="fa-solid fa-user"></i>
+                            Last Name
+                        </th>
+
+                        <th>
+                            <i class="fa-solid fa-phone"></i>
+                            Contact
+                        </th>
+
+                        <th>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Address
+                        </th>
+
+                        <th>
+                            <i class="fa-solid fa-note-sticky"></i>
+                            Remarks
+                        </th>
+
+                        <th>
+                            <i class="fa-solid fa-circle-info"></i>
+                            Status
+                        </th>
+
+                        <th class="fee-action-column">
+                            Actions
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <!-- ID -->
+                            <td>
+
+                                <span class="trainee-id">
+                                    @Html.DisplayFor(
+                                        modelItem =>
+                                        item.GymTraineeVM.TraineeId)
+                                </span>
+
+                            </td>
+
+
+                            <!-- First Name -->
+                            <td class="fee-name">
+
+                                <strong>
+                                    @Html.DisplayFor(
+                                        modelItem =>
+                                        item.GymTraineeVM.FirstName)
+                                </strong>
+
+                            </td>
+
+
+                            <!-- Last Name -->
+                            <td>
+
+                                @Html.DisplayFor(
+                                    modelItem =>
+                                    item.GymTraineeVM.LastName)
+
+                            </td>
+
+
+                            <!-- Contact -->
+                            <td>
+
+                                <span class="fee-contact">
+
+                                    <i class="fa-solid fa-phone"></i>
+
+                                    @Html.DisplayFor(
+                                        modelItem =>
+                                        item.GymTraineeVM.ContactNo)
+
+                                </span>
+
+                            </td>
+
+
+                            <!-- Address -->
+                            <td class="fee-address">
+
+                                <i class="fa-solid fa-location-dot"></i>
+
+                                @Html.DisplayFor(
+                                    modelItem =>
+                                    item.GymTraineeVM.Address)
+
+                            </td>
+
+
+                            <!-- Remarks -->
+                            <td class="remarks-cell">
+
+                                @if (item.MonthlyFeeVoucherVM != null)
+                                {
+                                    @Html.DisplayFor(
+                                        modelItem =>
+                                        item.MonthlyFeeVoucherVM.Remarks)
+                                }
+
+                            </td>
+
+
+                            <!-- STATUS -->
+                            <td>
+
+                                @if (item.MonthlyFeeVoucherVM != null &&
+                                     item.MonthlyFeeVoucherVM.Status == "Paid")
+                                {
+                                    <div class="payment-status paid">
+
+                                        <span>
+                                            <i class="fa-solid fa-circle-check"></i>
+                                            Paid
+                                        </span>
+
+                                        <a asp-controller="Report"
+                                           asp-action="EmployeeReport"
+                                           asp-route-id="@item.MonthlyFeeVoucherVM.MonthlyFeeID"
+                                           class="status-action print-action">
+
+                                            <i class="fa-solid fa-print"></i>
+                                            Print
+
+                                        </a>
+
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="payment-status unpaid">
+
+                                        <span>
+                                            <i class="fa-solid fa-circle-xmark"></i>
+                                            Not Paid
+                                        </span>
+
+                                        <a asp-controller="FeeVoucher"
+                                           asp-action="PayMonthlyFee"
+                                           asp-route-id="@item.GymTraineeVM.TraineeId"
+                                           class="status-action pay-action">
+
+                                            <i class="fa-solid fa-credit-card"></i>
+                                            Pay Now
+
+                                        </a>
+
+                                    </div>
+                                }
+
+                            </td>
+
+
+                            <!-- ACTION -->
+                            <td>
+
+                                @if (item.MonthlyFeeVoucherVM != null)
+                                {
+                                    <form asp-action="Delete"
+                                          asp-route-id="@item.MonthlyFeeVoucherVM.MonthlyFeeID"
+                                          method="post">
+
+                                        <button type="submit"
+                                                class="delete-fee-btn"
+                                                title="Delete Payment"
+                                                onclick="return confirm('Are you sure you want to delete the selected record?');">
+
+                                            <i class="fa-solid fa-trash"></i>
+                                            Delete
+
+                                        </button>
+
+                                    </form>
+                                }
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- EMPTY STATE -->
+        @if (!Model.Any())
+        {
+            <div class="empty-fee-state">
+
+                <div class="empty-fee-icon">
+                    <i class="fa-solid fa-receipt"></i>
+                </div>
+
+                <h4>No Fee Records Found</h4>
+
+                <p>
+                    No payment records match the selected filter.
+                </p>
+
+            </div>
+        }
+
+    </div>
+
+</div>
